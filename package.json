@@ -1,8 +1,8 @@
 {
-  "name": "Nodejs-Application",
+  "name": "myapp",
   "version": "1.0.0",
   "description": "starting from scratch",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "4.14.0"
+    "dotenv": "4.0.0",
+    "express": "4.14.0",
+    "mongoose": "4.7.7"
   }
 }
