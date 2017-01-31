@@ -1,9 +1,17 @@
-var express = require('express');
+'use strict';
+
+
 require('dotenv').config();
+var express = require('express');
+var parser = require('body-parser');
 var app = express();
-app.get('/',function(req,res){
-    res.send('hello world how r u?');
-})
+
+// setup db connection, initialize router on init
+const db = require('./config/db')();
+app.use(parser.json());
+require('./app/model/user');
+const rout  =require('./config/route')(app);
+//listen on particular port
 app.listen(process.env.PORT,function(){
     console.log('process listening ON',process.env.PORT);
 })
