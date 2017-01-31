@@ -6,7 +6,7 @@ module.exports = {
         return User.find({});
     },
     saveUser:(data)=> {
-        let user = new User();
+        let user = new User(data);
         return  user.save();
     }
 };

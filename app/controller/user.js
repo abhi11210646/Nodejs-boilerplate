@@ -12,7 +12,7 @@ module.exports  = {
     },
     updateuser: (req, res) => {
         //update user
-         userHelper.saveUser({name:"yoyo", age:24}).then((user)=> {
+         userHelper.saveUser({'name': 'yoyo', 'age': 24}).then((user)=> {
                 return res.status(200).send({
                     success:true,
                     message: 'Saved Successfully',
