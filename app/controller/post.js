@@ -6,10 +6,11 @@ module.exports = {
     addPost: (req, res) => {
         posthelper.addPost(req.body).then((data) => {
             return response.ok(res, data);
+        }).catch((err)=>{
+                console.log("dil ka pemaana", err);
         });
     },
-    getPost: () => {
-        console.log("get post");
+    getPost: (req, res) => {
         posthelper.getPost().then((data) => {
             return response.ok(res, data);
         }).catch((err)=>{
