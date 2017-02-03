@@ -8,5 +8,8 @@ module.exports = {
     saveUser:(data)=> {
         let user = new User(data);
         return  user.save();
+    },
+    deleteUser: ()=> {
+        return User.remove({});
     }
 };

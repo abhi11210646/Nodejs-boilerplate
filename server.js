@@ -10,7 +10,8 @@ var app = express();
 const db = require('./config/db')();
 app.use(parser.json());
 require('./app/model/user');
-const rout  =require('./config/route')(app);
+require('./app/model/post');
+const router = require('./config/route')(app);
 //listen on particular port
 app.listen(process.env.PORT,function(){
     console.log('process listening ON',process.env.PORT);
