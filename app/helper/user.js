@@ -2,14 +2,14 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 module.exports = {
-    getUser:()=> {
+    getUser: () => {
         return User.find({});
     },
-    saveUser:(data)=> {
+    saveUser: (data) => {
         let user = new User(data);
-        return  user.save();
+        return user.save();
     },
-    deleteUser: ()=> {
+    deleteUser: () => {
         return User.remove({});
     }
 };
