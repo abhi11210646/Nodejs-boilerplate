@@ -1,24 +1,32 @@
 'use strict';
 var userHelper = require('./../helper/user');
 var response = require('./../../config/response');
+var passport = require('passport');
+var Promise = require('bluebird');
 module.exports = {
-    getUser: (req, res) => {
-        // list all users
-        Promise.coroutine(function* () {
-            let post = yield userHelper.getUser()();
-            return post;
-        }).apply(this)
-            .then((post) => {
-                return response.ok(res, post);
-            })
-            .catch((error) => {
-                return response.ok(res, error);
-            });
+    login: (req, res) => {
+        // passport authentication 
+        passport.authenticate('local', (error, user, info) => {
+
+                    console.log("user-----========>>>>>>>>>", error, user, info);
+                    return response.ok(res, user);
+
+        })(req, res);
+        // Promise.coroutine(function* () {
+        //     let post = yield userHelper.getUser();
+        //     return post;
+        // }).apply(this)
+        //     .then((post) => {
+        //         return response.ok(res, post);
+        //     })
+        //     .catch((error) => {
+        //         return response.ok(res, error);
+        //     });
     },
-    updateuser: (req, res) => {
+    signUp: (req, res) => {
         // update user
         Promise.coroutine(function* () {
-            let post = yield userHelper.saveUser()();
+            let post = yield userHelper.saveUser(req.body);
             return post;
         }).apply(this)
             .then((post) => {
@@ -31,7 +39,7 @@ module.exports = {
     deleteuser: (req, res) => {
         // delete user
         Promise.coroutine(function* () {
-            let post = yield userHelper.deleteUser()();
+            let post = yield userHelper.deleteUser();
             return post;
         }).apply(this)
             .then((post) => {

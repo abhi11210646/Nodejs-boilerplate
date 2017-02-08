@@ -3,14 +3,14 @@
 var mongoose = require('mongoose');
 
  var userSchema = new mongoose.Schema({
-    name:{
+    username:{
         type: String,
         default: 'Abhishek',
         trim: true
     },
-    age: {
-        type: Number,
-        default: 23
+    passpord: {
+        type: String,
+        default: '1234'
     }
 });
 
