@@ -17,6 +17,7 @@ module.exports = {
             });
     },
     getPost: (req, res) => {
+            console.log("yoy console from c9 editor");
         Promise.coroutine(function* () {
             let post = yield posthelper.getPost();
             return post;
