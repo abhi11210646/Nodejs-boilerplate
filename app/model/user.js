@@ -1,9 +1,9 @@
 'use strict';
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
- var userSchema = new mongoose.Schema({
-    username:{
+const userSchema = new mongoose.Schema({
+    username: {
         type: String,
         default: 'Abhishek',
         trim: true
@@ -11,8 +11,11 @@ var mongoose = require('mongoose');
     passpord: {
         type: String,
         default: '1234'
+    },
+    refreshToken: {
+        type: String,
+        trim: true
     }
 });
 
-var user = mongoose.model('User', userSchema);
-module.exports = user;
+module.exports = mongoose.model('User', userSchema);
