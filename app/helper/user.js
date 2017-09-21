@@ -13,7 +13,6 @@ module.exports = {
         return User.remove({});
     },
     find: (condition) => {
-        console.log("menu kahndi tere jaise 36 fir de----??>>>", condition);
         return User.findOne(condition);
     }
 };

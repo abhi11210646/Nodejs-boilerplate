@@ -1,7 +1,4 @@
-'use strict'
-var ok = require('./ok');
-
-const respones = {
-    ok: ok
-};
-module.exports = respones;
+'use strict';
+const ok = require('./ok');
+const error = require('./error');
+module.exports = { ok, error };

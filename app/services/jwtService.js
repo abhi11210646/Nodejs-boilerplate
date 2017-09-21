@@ -1,34 +1,23 @@
+'use strict';
 const jwt = require("jsonwebtoken");
-export class jwtService {
+module.exports =  class jwtService {
     constructor() {}
-    createToken() {
-        let token = this.createJwtToken();
-        let refreshToken = jwt.sign({
-            user: {
-                id: "idididid",
-                name: "Abhishek Singh",
-                username: "abhishek11210646"
-            }
-        }, process.env.SECRET, {
+    // createToken(user) {
+        // let token = this.createJwtToken(user);
+        // let refreshToken = jwt.sign({ user }, process.env.SECRET, {
+        //     algorithm: 'HS256',
+        //     expiresIn: '5h',
+        //     issuer: 'jonu',
+        //     audience: 'jonu bhai'
+        // });
+        // return [token, refreshToken];
+    // }
+    createJwtToken(user) {
+        return jwt.sign({ user }, process.env.SECRET, {
             algorithm: 'HS256',
-            expiresIn: '5h',
+            expiresIn: '1h',
             issuer: 'jonu',
-            audience: 'jonu bhai'
-        });
-        return [token, refreshToken];
-    }
-    createJwtToken() {
-        return jwt.sign({
-            user: {
-                id: "idididid",
-                name: "Abhishek Singh",
-                username: "abhishek11210646"
-            }
-        }, process.env.SECRET, {
-            algorithm: 'HS256',
-            expiresIn: '5h',
-            issuer: 'jonu',
-            audience: 'jonu bhai'
+            audience: 'not sure'
         });
     }
-}
+};
