@@ -2,7 +2,7 @@
 
 module.exports = (res, error) => {
     return res.status(500).send({
-        'status': "failure",
+        'status': false,
         'name': error.name,
         'message': error.message,
         'stack': error.stack

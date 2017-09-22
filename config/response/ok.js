@@ -1,8 +1,9 @@
 'use script';
 
-module.exports = (res, data) => {
+module.exports = (res, body) => {
     return res.status(200).send({
-        'status': "success",
-        'body': data
+        'status': true,
+        'token': body.token,
+        'message': body.info
     });
 };
