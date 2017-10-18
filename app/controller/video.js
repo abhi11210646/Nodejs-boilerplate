@@ -5,7 +5,8 @@ const Video = mongoose.model('Video');
 module.exports = {
     getVideos: async (req, res) => {
         try {
-            let video = await Video.find({});
+            let video = await Video.find({}).sort({createdAt: -1});
+            
             response.ok(res, video);
         }
         catch (e) {
@@ -16,6 +17,13 @@ module.exports = {
     newVideo: async (req, res) => {
         try {
             let video = new Video(req.body.video);
+            if(req.body.video.type === 'CURRENT') {
+                let video2 = await Video.findOne({'type':'CURRENT'});
+                if(video2) {
+                    video2.type = 'TOP';
+                    await video2.save();
+                }
+             }
             await video.save();
             response.ok(res, { video });
         }

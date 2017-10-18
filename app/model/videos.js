@@ -6,7 +6,8 @@ const videoSchema = new mongoose.Schema({
     video: {
         type: String,
         trim: true,
-        default: 'https://www.youtube.com/embed/epZ0t0ewIC4'
+        default: 'https://www.youtube.com/embed/epZ0t0ewIC4',
+        required: true
     },
     title: {
         type: String,
