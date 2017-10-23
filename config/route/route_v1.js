@@ -9,6 +9,7 @@ module.exports = (passport) => {
     router.post('/me', isAuthenticated, user.me);
     router.get('/getVideos', video.getVideos);
     router.post('/newVideo', video.newVideo);
+    router.get('/deleteVideo/:id', video.deleteVideo);
     router.post('/updateVideo', video.updateVideo);
     return router;
 };

@@ -32,6 +32,17 @@ module.exports = {
         }
 
     },
+    deleteVideo: async (req, res) => {
+        try {
+            let video = req.params.id;
+            await Video.findByIdAndRemove(video);
+            response.ok(res, { video });
+        }
+        catch (e) {
+            response.error(res, e);
+        }
+
+    },
     updateVideo: async (req, res) => {
         try {
         let video = await Video.findOne({'_id':req.body.id});
