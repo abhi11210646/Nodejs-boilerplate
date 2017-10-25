@@ -53,8 +53,7 @@ module.exports = {
                 await video2.save();
             }
         }
-        video.type = req.body.type;
-        await video.save();
+        await Video.findByIdAndUpdate({'_id':req.body.id}, { $set: req.body });
         response.ok(res, { video });
         } catch(e) {
             response.error(res, e);
