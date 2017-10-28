@@ -19,10 +19,16 @@ const userSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+userSchema.set('toJSON', {
+        getters: true, virtuals: false, transform: (doc, ret, options) => {
+            delete ret.__v;
+            return ret;
+        }
+    });
 userSchema.methods.encryptPassword = (password) => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 };
-userSchema.methods.isValidPassword = (user, password) => {
-    return bcrypt.compareSync(password, user.password);
+userSchema.methods.isValidPassword = function isValidPassword(password) {
+    return bcrypt.compareSync(password, this.password);
 };
 module.exports = mongoose.model('User', userSchema);
