@@ -6,6 +6,7 @@ const jwtService = require("./../services/jwtService");
 const mongoose = require("mongoose");
 const User = mongoose.model('User');
 module.exports = {
+    // login controller
     login: (req, res) => {
         passport.authenticate('local', async(err, user, info) => {
             if (err) { response.error(res, err); }
