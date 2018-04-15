@@ -2,7 +2,7 @@ module.exports = {
     development: {
         db: process.env.DB_DEV,
         jwt: {
-            secretOrKey: process.env.SECRET,
+            secretOrKey: process.env.SECRET || 'SECRET',
             algorithm: 'HS256',
             expiresIn: '24h',
             issuer: 'jonu',
@@ -12,7 +12,7 @@ module.exports = {
     production: {
         db: process.env.DB_LIVE,
         jwt: {
-            secretOrKey: process.env.SECRET,
+            secretOrKey: process.env.SECRET || 'SECRET',
             algorithm: 'HS256',
             expiresIn: '1h',
             issuer: 'jonu',

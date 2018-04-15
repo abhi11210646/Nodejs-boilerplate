@@ -14,6 +14,6 @@ require("./serverConfig")(app, passport);
 require("./config/route")(app, passport);
 
 //listen on PORT
-app.listen(process.env.PORT, function() {
-    console.log('process listening ON', process.env.PORT);
+app.listen(process.env.PORT || 3000, '127.0.0.1', () => {
+    console.log('process listening ON', process.env.PORT || 3000);
 });
