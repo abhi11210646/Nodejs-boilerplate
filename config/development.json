@@ -1,0 +1,12 @@
+{
+    "database": {
+        "url": ""
+    },
+    "jwt": {
+        "secretOrKey": "DEV_SECRET",
+        "issuer": "JONU",
+        "audience": "JONU",
+        "expiresIn": "24h",
+        "algorithm":"HS256"
+    }
+}
