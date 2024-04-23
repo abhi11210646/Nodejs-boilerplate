@@ -18,7 +18,7 @@
     "dotenv": "^10.0.0",
     "express": "4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "5.12.13",
+    "mongoose": "5.13.20",
     "no-console": "^2.0.0",
     "passport": "0.4.1",
     "passport-jwt": "4.0.0",
