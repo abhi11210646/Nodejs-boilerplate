@@ -1,14 +1,14 @@
 {
   "name": "myapp",
-  "version": "1.0.2",
-  "description": "starting from scratch",
+  "version": "2.0.0",
+  "description": "RESTapi template for freshers to get started",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "start:dev": "nodemon server.js",
     "test": "set NODE_ENV=test&&mocha --timeout 15000 --colors --verbose -- __tests__/**/*.js"
   },
-  "author": "",
+  "author": "abhi11210646",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
