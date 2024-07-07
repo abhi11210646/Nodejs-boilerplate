@@ -1,7 +1,4 @@
 {
-    "database": {
-        "url": ""
-    },
     "jwt": {
         "secretOrKey": "TEST_SECRET",
         "issuer": "JONU",

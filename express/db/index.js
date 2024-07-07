@@ -1,14 +1,14 @@
 'use strict';
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const config = require("config");
 // module.exports = () => {
 const options = {
     keepAlive: 1000,
     useNewUrlParser: true,
     useCreateIndex: true
 };
-mongoose.connect(config.get("database.url"), options, (err, db) => {
+const DB_URL = process.env.DB_URL; 
+mongoose.connect(DB_URL, options, (err, _) => {
     if (err) console.log('Mongoose connection error', err.message);
 });
 mongoose.connection.on('connected', function () {

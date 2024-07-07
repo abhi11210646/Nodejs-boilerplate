@@ -1,13 +1,12 @@
 const expect = require('chai').expect;
 const request = require("supertest");
-const mongoose = require("mongoose");
 describe('/Auth-Middleware', () => {
     let server;
     let User;
-    let userSchema = { username: "jonu.1504@gmail.com", password: "1234567890" }
+    let userSchema = { username: "XXXX@gmail.com", password: "1234567890" }
     before(async () => {
         server = require("./../../server");
-        User = mongoose.model('User');
+        User = require("./../../src/app/model/user");
         await User.deleteMany({});
 
         const user = new User();
@@ -16,7 +15,7 @@ describe('/Auth-Middleware', () => {
     });
     describe('SignUp#', () => {
         it('should SignUp succesfully if valid Input Passed', async () => {
-            const res = await request(server).post('/v1/api/signUp').send({ username: "jonu@gmail.com", password: "1234567890" });
+            const res = await request(server).post('/v1/api/signUp').send({ username: "XXXX@gmail.com", password: "1234567890" });
             expect(res.status).to.equal(201);
             expect(res.body.data).to.be.an('object').with.a.property('token');
         })

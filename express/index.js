@@ -1,18 +1,16 @@
 const app = require('express')();
-require("dotenv").config();
+require("dotenv").load();
 const passport = require('passport');
 const bodyParser = require('body-parser');
-const noc = require('no-console');
 const cors = require('cors');
 
-// Bootstrap schemas, models
-require("./bootstrap");
-
 // App configuration
-noc(app);
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(cors());
+
+console.log(process.env.SECRET,"process.env.SECRET")
+
 
 //Database connection
 require('./db');

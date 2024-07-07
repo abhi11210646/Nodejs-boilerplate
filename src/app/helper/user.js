@@ -1,6 +1,5 @@
 'use strict';
-const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const User = require("./../model/user");
 module.exports = {
     deleteUser: (condition) => {
         return User.remove(condition);
