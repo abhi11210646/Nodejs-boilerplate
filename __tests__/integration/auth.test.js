@@ -7,7 +7,6 @@ describe('/Auth-Middleware', () => {
     before(async () => {
         server = require("./../../server");
         User = require("./../../src/app/model/user");
-        await User.deleteMany({});
 
         const user = new User();
         const password = user.encryptPassword(userSchema.password);
@@ -36,7 +35,6 @@ describe('/Auth-Middleware', () => {
         })
     });
     after(async () => {
-        await User.deleteMany({});
         await server.close();
     })
 });
